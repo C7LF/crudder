@@ -1,0 +1,64 @@
+# =========================
+# .NET / ASP.NET Core
+# =========================
+
+# Build output
+CrudderAPI/bin/
+CrudderAPI/obj/
+CrudderAPI.Tests/bin/
+CrudderAPI.Tests/obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio / IDE
+.vs/
+.idea/
+*.ncb
+*.opensdf
+*.sdf
+*.cache
+
+# Certificates / local DB
+*.pfx
+*.db
+*.log
+
+# App settings containing secrets
+CrudderAPI/appsettings.Development.json
+CrudderAPI/appsettings.Local.json
+CrudderAPI/secrets.json
+
+# =========================
+# Node / frontend
+# =========================
+
+# Dependencies
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+frontend/build/
+
+# Environment files
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# OS / Misc
+# =========================
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
