@@ -1,6 +1,4 @@
-using System.Threading.Tasks;
-using CrudderApi.Data;
-using CrudderApi.Dtos;
+using CrudderApi.Dtos.Auth;
 using CrudderApi.Models;
 using CrudderApi.Services;
 using Microsoft.AspNetCore.Mvc;

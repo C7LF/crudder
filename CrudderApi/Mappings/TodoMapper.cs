@@ -10,7 +10,8 @@ namespace CrudderApi.Mappings
         {
             // Request → Entity
             CreateMap<CreateTodoRequest, TodoItem>();
-            CreateMap<UpdateTodoRequest, TodoItem>();
+            CreateMap<UpdateTodoRequest, TodoItem>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
             // Entity → Response
             CreateMap<TodoItem, TodoResponse>();

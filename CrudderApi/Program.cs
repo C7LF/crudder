@@ -24,6 +24,7 @@ else
 builder.Services.AddSingleton<AuthService>();
 builder.Services.AddScoped<TodoService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<LabelService>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 

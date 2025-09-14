@@ -9,5 +9,7 @@ namespace CrudderApi.Models
 
         public int UserId { get; set; }
         public User User { get; set; } = null!;
+        public List<Label> Labels { get; set; } = [];
+
     }
 }

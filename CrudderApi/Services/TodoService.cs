@@ -36,11 +36,22 @@ namespace CrudderApi.Services
         // Update todo
         public async Task<TodoItem?> UpdateAsync(int id, int userId, UpdateTodoRequest request)
         {
-            var existing = await _context.TodoItems.FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
+            var existing = await _context.TodoItems
+                .Include(t => t.Labels)
+                .FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
+
             if (existing == null) return null;
 
-            // Map changes from DTO → existing entity
             _mapper.Map(request, existing);
+
+            if (request.LabelIds != null)
+            {
+                var labels = await _context.Labels
+                    .Where(l => request.LabelIds.Contains(l.Id) && l.UserId == userId)
+                    .ToListAsync();
+
+                existing.Labels = labels;
+            }
 
             await _context.SaveChangesAsync();
             return existing;

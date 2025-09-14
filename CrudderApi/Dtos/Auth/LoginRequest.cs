@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace CrudderApi.Dtos
+namespace CrudderApi.Dtos.Auth
 {
     public class LoginRequest
     {

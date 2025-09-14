@@ -7,6 +7,7 @@ namespace CrudderApi.Models
         public string Email { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
 
+        public ICollection<Label> Labels { get; set; } = [];
         public ICollection<TodoItem> TodoItems { get; set; } = [];
     }
 }

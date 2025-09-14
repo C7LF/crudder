@@ -1,3 +1,5 @@
+using CrudderApi.DTOs.Labels;
+
 namespace CrudderApi.DTOs.Todo
 {
     public class TodoResponse
@@ -5,6 +7,7 @@ namespace CrudderApi.DTOs.Todo
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public bool Completed { get; set; }
-        public string Label { get; set; } = string.Empty;
+
+        public List<LabelResponse> Labels { get; set; } = [];
     }
 }
