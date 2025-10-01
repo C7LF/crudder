@@ -32,13 +32,17 @@ export const KebabMenu = ({ items }: KebabMenuProps) => {
       {open && (
         <div
           ref={menuRef!}
-          className="absolute right-10 -top-3 w-40 rounded-xl bg-white shadow-lg border border-gray-200 z-30"
+          className="absolute right-10 -top-3 w-40 rounded-xl 
+                     bg-white dark:bg-gray-800 
+                     shadow-lg 
+                     border border-gray-200 dark:border-gray-700 
+                     z-30"
         >
-          <ul className="py-1 text-sm text-gray-700">
+          <ul className="py-1 text-sm text-gray-700 dark:text-gray-200">
             {items.map((item, id) => (
               <li
                 key={id}
-                className="p-3 cursor-pointer"
+                className="p-3 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
                 onClick={() => item.onClick()}
               >
                 <div className="flex items-center gap-1">

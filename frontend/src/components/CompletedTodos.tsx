@@ -11,7 +11,7 @@ export const CompletedTodos = ({ todos }: { todos?: Todo[] }) => {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 py-2 font-semibold hover:cursor-pointer"
+        className="flex items-center gap-2 py-2 font-semibold hover:cursor-pointer dark:text-gray-100"
         aria-expanded={isOpen}
       >
         Completed
