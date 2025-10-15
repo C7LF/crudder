@@ -1,5 +1,5 @@
 import api from "../api/axios"
-import type { Todo } from "../types/todo"
+import type { Todo, UpdateTodoPayload } from "../types/todo"
 
 export const getTodos = async () => {
   const res = await api.get<Todo[]>("/todos")
@@ -11,7 +11,7 @@ export const createTodo = async (title: string) => {
   return res.data
 }
 
-export const updateTodo = async (todo: Todo) => {
+export const updateTodo = async (todo: UpdateTodoPayload) => {
   const res = await api.put(`/todos/${todo.id}`, todo)
   return res.data
 }

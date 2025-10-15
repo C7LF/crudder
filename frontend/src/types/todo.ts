@@ -1,6 +1,15 @@
+import type { Label } from "./label"
+
 export interface Todo {
     id: number,
     title: string,
     completed: boolean
-    label?: "primary" | "secondary" | "blue" | "green"
+    labels?: Label[]
+}
+
+export interface UpdateTodoPayload {
+  id: number
+  title?: string
+  completed?: boolean
+  labelIds?: number[]
 }

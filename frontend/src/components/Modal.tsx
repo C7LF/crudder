@@ -1,5 +1,6 @@
 import { createPortal } from "react-dom"
 import { useEffect } from "react"
+import { Close } from "./icons/Close"
 
 type ModalProps = {
   isOpen: boolean
@@ -22,12 +23,20 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   return createPortal(
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
-      onClick={onClose}
+      onClick={() => {
+        onClose()
+      }}
     >
       <div
-        className="bg-white rounded-lg shadow-lg p-6 w-10/12 relative"
+        className="bg-white dark:bg-gray-800 dark:text-white rounded-lg shadow-lg p-6 w-10/12 relative"
         onClick={(e) => e.stopPropagation()}
       >
+        <Close
+          className="size-5 absolute -right-1 -top-1 bg-amber-700 rounded-full cursor-pointer"
+          onClick={() => {
+            onClose()
+          }}
+        />
         {children}
       </div>
     </div>,

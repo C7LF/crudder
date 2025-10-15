@@ -15,13 +15,13 @@ namespace CrudderApi.Services
         public async Task<List<TodoItem>> GetAllByUserAsync(int userId)
         {
             _logger.LogInformation("Fetching all todos for UserId {UserId}", userId);
-            return await _context.TodoItems.Where(t => t.UserId == userId).ToListAsync();
+            return await _context.TodoItems.Include(t => t.Labels).Where(t => t.UserId == userId).ToListAsync();
         }
 
         public async Task<TodoItem?> GetByIdAsync(int id, int userId)
         {
             _logger.LogInformation("Fetching todo {TodoId} for UserId {UserId}", id, userId);
-            return await _context.TodoItems.FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
+            return await _context.TodoItems.Include(t => t.Labels).FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
         }
 
         // Create new todo

@@ -1,13 +1,13 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { updateTodo } from "../services/todos"
-import type { Todo } from "../types/todo"
+import type { Todo, UpdateTodoPayload } from "../types/todo"
 
 export const useUpdateTodo = () => {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: updateTodo,
-    onMutate: async (updated: Partial<Todo> & { id: number }) => {
+    mutationFn: (updated: UpdateTodoPayload) => updateTodo(updated),
+    onMutate: async (updated) => {
       await queryClient.cancelQueries({ queryKey: ["todos"] })
       const previousTodos = queryClient.getQueryData<Todo[]>(["todos"])
 
@@ -31,6 +31,6 @@ export const useUpdateTodo = () => {
       queryClient.setQueryData<Todo[]>(["todos"], (old) =>
         old ? old.map((t) => (t.id === serverTodo.id ? serverTodo : t)) : []
       )
-    }
+    },
   })
 }
