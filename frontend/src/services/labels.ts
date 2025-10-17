@@ -1,7 +1,7 @@
 import api from "../api/axios"
-import type { Label } from "../types/label"
+import type { CreateLabelPayload, Label } from "../types/label"
 
-export const createLabel = async (label: Label) => {
+export const createLabel = async (label: CreateLabelPayload) => {
   const res = await api.post("/labels", {
     text: label.text,
     colour: label.colour,
