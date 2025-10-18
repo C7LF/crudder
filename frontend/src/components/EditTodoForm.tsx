@@ -10,10 +10,8 @@ export const EditTodoForm = ({ todo }: { todo: Todo }) => {
   const [title, setTitle] = useState(todo.title)
   const [labelBoxOpen, setLabelBoxOpen] = useState(false)
   const [selectedIds, setSelectedIds] = useState<number[]>(
-    todo.labels
-      ?.map((l) => l.id)
-      .filter((id): id is number => id !== undefined) || []
-  )
+    todo.labels?.map((l) => l.id)
+      || [])
 
   const updateMutation = useUpdateTodo()
 

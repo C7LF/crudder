@@ -6,12 +6,28 @@ import { Tick } from "./icons/Tick"
 import { useState } from "react"
 import { Modal } from "./Modal"
 import { EditTodoForm } from "./EditTodoForm"
+import { useLabels } from "../hooks/useLabels"
+
+const LabelThumbnail = ({ colour }: { colour: string }) => (
+  <div
+    className="w-8 h-2.5 mr-2 rounded-full"
+    style={{
+      backgroundColor: colour,
+    }}
+  ></div>
+)
 
 export const TodoItem = ({ todo }: { todo: Todo }) => {
   const [popupOpen, setPopupOpen] = useState(false)
 
   const updateMutation = useUpdateTodo()
   const deleteMutation = useDeleteTodo()
+
+  const { data } = useLabels()
+
+  const selectedLabels = data?.filter((label) =>
+    todo.labels?.some((todoLabel) => todoLabel.id === label.id)
+  )
 
   return (
     <>
@@ -20,7 +36,16 @@ export const TodoItem = ({ todo }: { todo: Todo }) => {
         onClick={() => setPopupOpen(true)}
       >
         <div className="flex items-center justify-between bg-gray-100 dark:bg-gray-700 p-5 w-full rounded-sm">
-          <p className="dark:text-gray-100">{todo.title}</p>
+          <div className="flex flex-col flex-grow">
+            <p className="dark:text-gray-100">{todo.title}</p>
+            {selectedLabels && selectedLabels.length > 0 && (
+              <div className="flex mt-4">
+                {selectedLabels.map((label) => (
+                  <LabelThumbnail key={label.id} colour={label.colour!} />
+                ))}
+              </div>
+            )}
+          </div>
           <div className="flex space-x-2">
             <div
               className="inline-flex items-center"
