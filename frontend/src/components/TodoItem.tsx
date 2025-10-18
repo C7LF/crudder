@@ -6,7 +6,6 @@ import { Tick } from "./icons/Tick"
 import { useState } from "react"
 import { Modal } from "./Modal"
 import { EditTodoForm } from "./EditTodoForm"
-import { useLabels } from "../hooks/useLabels"
 
 const LabelThumbnail = ({ colour }: { colour: string }) => (
   <div
@@ -23,12 +22,6 @@ export const TodoItem = ({ todo }: { todo: Todo }) => {
   const updateMutation = useUpdateTodo()
   const deleteMutation = useDeleteTodo()
 
-  const { data } = useLabels()
-
-  const selectedLabels = data?.filter((label) =>
-    todo.labels?.some((todoLabel) => todoLabel.id === label.id)
-  )
-
   return (
     <>
       <div
@@ -38,9 +31,9 @@ export const TodoItem = ({ todo }: { todo: Todo }) => {
         <div className="flex items-center justify-between bg-gray-100 dark:bg-gray-700 p-5 w-full rounded-sm">
           <div className="flex flex-col flex-grow">
             <p className="dark:text-gray-100">{todo.title}</p>
-            {selectedLabels && selectedLabels.length > 0 && (
+            {todo.labels && todo.labels.length > 0 && (
               <div className="flex mt-4">
-                {selectedLabels.map((label) => (
+                {todo.labels.map((label) => (
                   <LabelThumbnail key={label.id} colour={label.colour!} />
                 ))}
               </div>

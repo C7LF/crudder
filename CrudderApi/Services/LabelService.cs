@@ -39,6 +39,7 @@ namespace CrudderApi.Services
 
             if (label == null) return false;
 
+            _context.Labels.Remove(label);
             await _context.SaveChangesAsync();
             return true;
         }

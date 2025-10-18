@@ -18,7 +18,6 @@ namespace CrudderApi.Controllers
 
         protected int UserId => User.GetUserId();
 
-
         [HttpGet]
         public async Task<ActionResult<IEnumerable<LabelResponse>>> GetAll()
         {
@@ -44,6 +43,16 @@ namespace CrudderApi.Controllers
             {
                 return BadRequest(new { message = ex.Message });
             }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var label = await _labelService.DeleteAsync(id, UserId);
+
+            if (!label) return NotFound();
+            
+            return NoContent();
         }
 
     }
