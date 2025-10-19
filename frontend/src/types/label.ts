@@ -5,6 +5,6 @@ export type Label = {
 }
 
 export type CreateLabelPayload = {
-    text: string,
-    colour: string
+    text?: string,
+    colour?: string
 }

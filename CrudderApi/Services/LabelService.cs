@@ -20,7 +20,7 @@ namespace CrudderApi.Services
         {
             var currentCount = await _context.Labels.CountAsync(l => l.UserId == label.UserId);
 
-            const int maxLabels = 20;
+            const int maxLabels = 10;
 
             if (currentCount >= maxLabels)
             {
