@@ -1,7 +1,11 @@
 import { useState } from "react"
 import type { CreateLabelPayload } from "../types/label"
 
-export const CreateLabelForm = () => {
+type CreateLabelFormProps = {
+  onCancel: () => void
+}
+
+export const CreateLabelForm = ({ onCancel }: CreateLabelFormProps) => {
   const [newLabel, setNewLabel] = useState<CreateLabelPayload>({
     text: "",
     colour: "#000000",
@@ -42,13 +46,17 @@ export const CreateLabelForm = () => {
         ></input>
       </div>
 
-      <button
-        onClick={() => {
-          console.log(newLabel)
-        }}
-      >
-        Create
-      </button>
+      <div className="flex justify-between">
+        <button
+          className="mt-5 py-1.5 px-3 rounded-sm text-sm cursor-pointer"
+          onClick={onCancel}
+        >
+          Cancel
+        </button>
+        <button className="mt-5 py-1.5 px-3 bg-amber-700 rounded-sm text-sm hover:bg-amber-800 cursor-pointer">
+          Create
+        </button>
+      </div>
     </>
   )
 }

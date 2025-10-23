@@ -20,9 +20,9 @@ export const LabelPicker = ({ selectedIds, onToggle }: LabelPickerProps) => {
 
   return (
     <div className="absolute bg-gray-900 p-4 mt-2 w-56 rounded-md shadow-lg min-h-30 overflow-y-scroll items-center">
-      {createLabelState ? (
+      {!createLabelState ? (
         <>
-          <p className="text-sm pb-2 text-gray-300 ">Labels</p>
+          <p className="text-sm pb-2 text-gray-300">Labels</p>
 
           {isLoading && (
             <div className="flex justify-center">
@@ -43,9 +43,22 @@ export const LabelPicker = ({ selectedIds, onToggle }: LabelPickerProps) => {
               )
             })}
           </ul>
+          <button
+            type="button"
+            className="mt-5 py-1.5 px-3 bg-amber-700 rounded-sm text-sm hover:bg-amber-800 cursor-pointer"
+            onClick={() => {
+              setCreateLabelState(true)
+            }}
+          >
+            New label
+          </button>
         </>
       ) : (
-        <CreateLabelForm />
+        <CreateLabelForm
+          onCancel={() => {
+            setCreateLabelState(false)
+          }}
+        />
       )}
     </div>
   )
