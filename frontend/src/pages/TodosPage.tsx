@@ -1,8 +1,10 @@
-import { TodosHeader } from "../components/TodosHeader"
-import { AddTodoInput } from "../components/AddTodoInput"
-import { TodoList } from "../components/TodoList"
-import { CompletedTodos } from "../components/CompletedTodos"
-import { useTodos } from "../hooks/useTodos"
+import {
+  AddTodoInput,
+  CompletedTodos,
+  TodoList,
+  TodosHeader,
+  useTodos,
+} from "@/features/todos"
 
 export const TodosPage = () => {
   const { todos, mutation } = useTodos()

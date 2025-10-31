@@ -1,0 +1,11 @@
+export { default as AddIcon } from "./Add"
+export { default as BinIcon} from "./Bin"
+export { default as ChevronDownIcon } from "./ChevronDown"
+export { default as CloseIcon } from "./Close"
+export { default as KebabVerticalIcon } from "./KebabVertical"
+export { default as LabelIcon } from "./Label"
+export { default as LoadingSpinnerIcon } from "./LoadingSpinner"
+export { default as MoonIcon } from "./Moon"
+export { default as SunIcon } from "./Sun"
+export { default as TickIcon } from "./Tick"
+
