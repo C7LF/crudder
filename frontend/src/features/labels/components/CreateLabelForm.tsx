@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import { Input } from "@/shared/components"
+
 import { useLabels } from "../hooks/useLabels"
 import type { CreateLabelPayload } from "../types/label"
 
@@ -30,19 +32,9 @@ export const CreateLabelForm = ({
 
   return (
     <>
-      <p className="text-sm pb-2 text-gray-300">Create label</p>
+      <p className="text-sm pb-2 dark:text-gray-300">Create label</p>
 
-      <input
-        type="text"
-        autoFocus
-        className="block w-full rounded-md 
-                     bg-white dark:bg-gray-800 
-                     text-gray-900 dark:text-gray-100 
-                     px-3 py-1.5 text-base 
-                     placeholder:text-gray-500 dark:placeholder:text-gray-400
-                     outline-1 -outline-offset-1 outline-white/10 dark:outline-gray-700
-                     focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 
-                     sm:text-sm/6"
+      <Input
         placeholder="text..."
         value={newLabel.text}
         onChange={(e) => setNewLabel({ ...newLabel, text: e.target.value })}
@@ -51,7 +43,7 @@ export const CreateLabelForm = ({
       <div className="flex items-center gap-2 pt-2">
         <label
           htmlFor="color-input"
-          className="text-sm font-light text-gray-300"
+          className="text-sm font-light dark:text-gray-300"
         >
           Colour
         </label>
@@ -67,13 +59,13 @@ export const CreateLabelForm = ({
 
       <div className="flex justify-between">
         <button
-          className="mt-5 py-1.5 px-3 rounded-sm text-sm cursor-pointer"
+          className="mt-5 py-1.5rounded-sm text-sm cursor-pointer underline underline-offset-3"
           onClick={onCancel}
         >
           Cancel
         </button>
         <button
-          className="mt-5 py-1.5 px-3 bg-amber-700 rounded-sm text-sm hover:bg-amber-800 cursor-pointer disabled:opacity-60"
+          className="mt-5 py-1.5 px-3 font-semibold text-white bg-amber-500 hover:bg-amber-600 dark:bg-amber-700 dark:hover:bg-amber-800 rounded-sm text-sm cursor-pointer"
           onClick={handleOnCreate}
           disabled={mutation.status === "pending"}
         >

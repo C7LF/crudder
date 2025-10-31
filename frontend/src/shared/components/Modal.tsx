@@ -33,7 +33,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
         onClick={(e) => e.stopPropagation()}
       >
         <CloseIcon
-          className="size-5 absolute -right-1 -top-1 bg-amber-700 rounded-full cursor-pointer"
+          className="size-5 absolute -right-1 -top-1 text-white bg-amber-500 dark:bg-amber-700 rounded-full cursor-pointer"
           onClick={() => {
             onClose()
           }}

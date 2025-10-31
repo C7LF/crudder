@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 import { type Label, LabelPicker } from "@/features/labels"
-import { LabelIcon } from "@/shared/components"
+import { Input, LabelIcon } from "@/shared/components"
 import { useDebounce } from "@/shared/hooks"
 
 import { useUpdateTodo } from "../hooks/useUpdateTodo"
@@ -36,26 +36,30 @@ export const EditTodoForm = ({ todo }: { todo: Todo }) => {
 
   return (
     <>
-      <input
+      <Input
         type="text"
         value={title}
         onChange={(e) => {
           setTitle(e.target.value)
           debouncedUpdate(e.target.value)
         }}
-        className="w-full px-3 py-2 mb-4 border rounded"
+        className="w-full px-3 py-2 mb-4 border rounded dark:border-gray-400"
       />
 
       <button
         onClick={() => setLabelBoxOpen(!labelBoxOpen)}
-        className="flex items-center gap-1 py-1.5 px-3 border border-gray-400 rounded-full text-sm text-gray-400 hover:bg-gray-700 cursor-pointer"
+        className="flex items-center gap-1 py-1.5 px-3 border dark:border-gray-400 rounded-full text-sm dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
       >
         <LabelIcon />
         Labels
       </button>
 
       {labelBoxOpen && (
-        <LabelPicker selectedIds={selectedIds} onToggle={handleLabelToggle} />
+        <LabelPicker
+          selectedIds={selectedIds}
+          onToggle={handleLabelToggle}
+          onClose={() => setLabelBoxOpen(false)}
+        />
       )}
     </>
   )

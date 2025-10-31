@@ -1,4 +1,6 @@
+export * from './Checkbox'
 export * from './icons'
+export * from './Input'
 export * from './KebabMenu'
 export * from './Modal'
 export * from './ThemeToggle'

@@ -1,3 +1,5 @@
+import { Checkbox } from "@/shared/components"
+
 import type { Label } from "../types/label"
 import { getContrastColor } from "../utils/color"
 
@@ -10,7 +12,7 @@ type LabelItemProps = {
 export const LabelItem = ({ label, checked, onChange }: LabelItemProps) => {
   return (
     <li className="mb-1 flex items-center gap-2">
-      <input type="checkbox" checked={checked} onChange={onChange} />
+      <Checkbox checked={checked} onChange={onChange} />
       <div
         className="flex flex-grow pl-2 items-center h-8 text-sm rounded"
         style={{
