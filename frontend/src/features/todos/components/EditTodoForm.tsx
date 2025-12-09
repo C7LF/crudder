@@ -6,9 +6,11 @@ import { useDebounce } from "@/shared/hooks"
 
 import { useUpdateTodo } from "../hooks/useUpdateTodo"
 import type { Todo } from "../types/todo"
+import { ContentEditor } from "./ContentEditor"
 
 export const EditTodoForm = ({ todo }: { todo: Todo }) => {
   const [title, setTitle] = useState(todo.title)
+  const [content, setContent] = useState(todo.content || "")
   const [labelBoxOpen, setLabelBoxOpen] = useState(false)
   const [selectedIds, setSelectedIds] = useState<number[]>(
     todo.labels?.map((l) => l.id) || []
@@ -20,6 +22,14 @@ export const EditTodoForm = ({ todo }: { todo: Todo }) => {
     updateMutation.mutate({
       ...todo,
       title: newTitle,
+    })
+  }, 500)
+
+  const handleContentChange = useDebounce((newContent: string) => {
+    setContent(newContent)
+    updateMutation.mutate({
+      ...todo,
+      content: newContent,
     })
   }, 500)
 
@@ -46,9 +56,11 @@ export const EditTodoForm = ({ todo }: { todo: Todo }) => {
         className="w-full px-3 py-2 mb-4 border rounded dark:border-gray-400"
       />
 
+      <ContentEditor value={content} onChange={handleContentChange} />
+
       <button
         onClick={() => setLabelBoxOpen(!labelBoxOpen)}
-        className="flex items-center gap-1 py-1.5 px-3 border dark:border-gray-400 rounded-full text-sm dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+        className="flex items-center gap-1 py-1.5 px-3 border dark:border-gray-400 rounded-full text-sm dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer mt-4"
       >
         <LabelIcon />
         Labels

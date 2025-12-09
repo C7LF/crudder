@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import { Checkbox, KebabMenu, Modal, TickIcon } from "@/shared/components"
+import { Checkbox, KebabMenu, Modal } from "@/shared/components"
 
 import { useDeleteTodo, useUpdateTodo } from "../hooks"
 import type { Todo } from "../types/todo"
@@ -43,24 +43,15 @@ export const TodoItem = ({ todo }: { todo: Todo }) => {
               className="inline-flex items-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <label className="flex items-center cursor-pointer relative">
-                <Checkbox
-                  checked={todo.completed}
-                  onChange={() =>
-                    updateMutation.mutate({
-                      ...todo,
-                      completed: !todo.completed,
-                    })
-                  }
-                />
-                <span
-                  className="absolute opacity-0 peer-checked:opacity-100 
-               top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-               text-white dark:text-gray-300"
-                >
-                  <TickIcon />
-                </span>
-              </label>
+              <Checkbox
+                checked={todo.completed}
+                onChange={() =>
+                  updateMutation.mutate({
+                    ...todo,
+                    completed: !todo.completed,
+                  })
+                }
+              />
             </div>
             <div onClick={(e) => e.stopPropagation()}>
               <KebabMenu

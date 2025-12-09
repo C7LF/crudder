@@ -4,6 +4,8 @@ namespace CrudderApi.DTOs.Todo
     {
         public string? Title { get; set; } = string.Empty;
         public bool? Completed { get; set; }
+        public string? Content { get; set; } = string.Empty;
+        
         public List<int>? LabelIds { get; set; }
     }
 }
