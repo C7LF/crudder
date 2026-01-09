@@ -1,0 +1,6 @@
+@Crudder.Api_HostAddress = http://localhost:5047
+
+GET {{Crudder.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

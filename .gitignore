@@ -3,10 +3,10 @@
 # =========================
 
 # Build output
-CrudderAPI/bin/
-CrudderAPI/obj/
-CrudderAPI.Tests/bin/
-CrudderAPI.Tests/obj/
+**/bin/
+**/obj/
+**/Tests/bin/
+**/Tests/obj/
 
 # User-specific files
 *.user
@@ -28,9 +28,9 @@ CrudderAPI.Tests/obj/
 *.log
 
 # App settings containing secrets
-CrudderAPI/appsettings.Development.json
-CrudderAPI/appsettings.Local.json
-CrudderAPI/secrets.json
+**/appsettings.Development.json
+**/appsettings.Local.json
+**/secrets.json
 
 # =========================
 # Node / frontend

@@ -9,6 +9,7 @@ export const useLabels = () => {
   const { data: labels, ...query } = useQuery<Label[]>({
     queryKey: ["labels"],
     queryFn: getLabels,
+    staleTime: 1000 * 60 * 5,
   })
 
   const mutation = useMutation<Label, unknown, CreateLabelPayload>({

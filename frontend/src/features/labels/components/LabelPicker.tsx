@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useState } from "react"
 
 import { CloseIcon, LoadingSpinnerIcon } from "@/shared/components"
 
@@ -18,11 +18,9 @@ export const LabelPicker = ({
   onToggle,
   onClose,
 }: LabelPickerProps) => {
-  const { labels: allLabels, isLoading } = useLabels()
+  const { labels, isLoading } = useLabels()
 
   const [createLabelState, setCreateLabelState] = useState(false)
-
-  const labels = useMemo(() => allLabels, [allLabels])
 
   return (
     <div className="absolute bg-gray-100 drop-shadow-lg dark:bg-gray-900 p-4 mt-2 w-56 rounded-md shadow-lg min-h-30 items-center">
