@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
+namespace Crudder.Api.Extensions;
+
 public static class ServiceExtensions
 {
     public static void AddDatabase(this IServiceCollection services, IConfiguration config, IWebHostEnvironment env)

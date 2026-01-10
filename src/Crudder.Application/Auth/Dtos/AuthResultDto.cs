@@ -1,13 +1,10 @@
-namespace Crudder.Application.Auth.Dtos
+namespace Crudder.Application.Auth.Dtos;
+
+public class AuthResultDto(int userId, string email, string jwtToken, string refreshToken)
 {
-    /// <summary>
-    /// Result returned by authentication handlers (Register/Login).
-    /// </summary>
-    public class AuthResultDto(int userId, string email, string jwtToken, string refreshToken)
-    {
-        public int UserId { get; set; } = userId;
-        public string Email { get; set; } = email;
-        public string JwtToken { get; set; } = jwtToken;
-        public string RefreshToken { get; set; } = refreshToken;
-    }
+    public int UserId { get; set; } = userId;
+    public string Email { get; set; } = email;
+    public string JwtToken { get; set; } = jwtToken;
+    public string RefreshToken { get; set; } = refreshToken;
 }
+

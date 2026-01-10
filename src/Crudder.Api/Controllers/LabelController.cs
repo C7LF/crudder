@@ -5,7 +5,7 @@ using Crudder.Api.Extensions;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Crudder.Api.Labels.Requests;
+using Crudder.Api.Dtos.Labels;
 
 namespace Crudder.Api.Controllers;
 
@@ -29,17 +29,10 @@ public class LabelController(IMediator mediator) : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create(CreateLabelRequest request)
     {
-        try
-        {
-            var label = await _mediator.Send(
-                new CreateLabelCommand(UserId, request.Text, request.Colour));
+        var label = await _mediator.Send(
+            new CreateLabelCommand(UserId, request.Text, request.Colour));
 
-            return Ok(label);
-        }
-        catch (InvalidOperationException ex)
-        {
-            return BadRequest(new { message = ex.Message });
-        }
+        return Ok(label);
     }
 
     [HttpDelete("{id}")]

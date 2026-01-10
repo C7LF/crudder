@@ -1,13 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace CrudderApi.Dtos.Auth
-{
-    public class LoginRequest
-    {
-        [Required]
-        public string Email { get; set; } = string.Empty;
+namespace Crudder.Api.Dtos.Auth;
 
-        [Required]
-        public string Password { get; set; } = string.Empty;
-    }
+public class LoginRequest
+{
+    [Required]
+    public string Email { get; set; } = string.Empty;
+
+    [Required]
+    public string Password { get; set; } = string.Empty;
 }

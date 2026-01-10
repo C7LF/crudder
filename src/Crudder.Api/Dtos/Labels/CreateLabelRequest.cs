@@ -1,4 +1,4 @@
-namespace Crudder.Api.Labels.Requests;
+namespace Crudder.Api.Dtos.Labels;
 
 public class CreateLabelRequest
 {

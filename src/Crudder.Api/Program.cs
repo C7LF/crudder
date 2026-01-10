@@ -6,6 +6,7 @@ using Crudder.Infrastructure.Repositories;
 using Crudder.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Crudder.Application.Common.Interfaces;
+using Crudder.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

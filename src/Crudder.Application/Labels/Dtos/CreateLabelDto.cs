@@ -1,8 +1,7 @@
-namespace CrudderApi.DTOs.Labels
+namespace Crudder.Application.Labels.Dtos;
+
+public class CreateLabelRequest
 {
-    public class CreateLabelRequest
-    {
-        public string Text { get; set; } = string.Empty;
-        public string Colour { get; set; } = "#000000";
-    }
+    public string Text { get; set; } = string.Empty;
+    public string Colour { get; set; } = "#000000";
 }

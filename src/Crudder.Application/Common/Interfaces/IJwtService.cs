@@ -1,11 +1,10 @@
 
 using Crudder.Domain.Entities;
 
-namespace Crudder.Application.Common.Interfaces
+namespace Crudder.Application.Common.Interfaces;
+
+public interface IJwtService
 {
-    public interface IJwtService
-    {
-        string GenerateJwt(User user);
-        string GenerateRefreshToken();
-    }
+    string GenerateJwt(User user);
+    string GenerateRefreshToken();
 }
